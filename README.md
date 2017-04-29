@@ -90,21 +90,9 @@ https://youtu.be/nscgG2403FA
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+To be more robust for videos I've added some techniques to detect vehicles in subsequent frames. A heatmap in the functions get_hot_windows and detect_vehicles respectively) is added to show the location of repeated vehicle detections. The previous results are stored in a custom class Memory, that stores values of the previous frame. This technique was used to reduce the number of false positives, to combine multiple overlapping boundig boxes I've used a function to combine all bounding boxes. the code can be found in the submitted notebook.
 
 ### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
 
 ---
 
@@ -112,5 +100,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The implementation of the project was quite hard thus I find the Computer Vision parts of the project kinda hard, I also was a bit confused about the multiple classifiers I used, but they seemed to do not work apart from eachother.
+
+The pipeline might fail when new types of cars are on the road and the way I might improve it if I were going to pursue this project further by using deeplearning to keep training the model for the best and most updated accuracy possible.  
 
