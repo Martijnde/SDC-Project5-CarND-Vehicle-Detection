@@ -19,34 +19,58 @@ The goals / steps of this project are the following:
 
 ###Histogram of Oriented Gradients (HOG)
 
-####1. I extracted HOG features from the training images, the code for this step is contained in the IPython notebook.  
+####1. I extracted HOG features from the training images, the code for this step is contained in the submitted IPython notebook.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/car_and_noncar.png?raw=true)
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`). I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `HSV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/hog1.png?raw=true)
 
-![alt text][image2]
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/hog2.png?raw=true)
+
+The code for this step is contained in the submitted IPython notebook.
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and found the best settings to train the classifier well. (XXX settings used XXX)
+I tried various combinations of parameters and this way I found the best settings to train the classifier well. 
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+I trained a linear SVM using the settings below:
+
+color_space:  RGB
+orient:  9
+pix_per_cell:  8
+cell_per_block:  2
+hog_channel:  0
+spatial_size:  (32, 32)
+hist_bins:  16
+spatial_feat:  True
+hist_feat:  True
+hog_feat:  True
+Using spatial binning of: (32, 32) and 16 histogram bins
+
+The code for this step is contained in the submitted IPython notebook.
 
 ###Sliding Window Search
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I decided to search the window positions over the image and came up with this ideal settings:
 
-![alt text][image3]
+wndws_v1 = slide_window(image, x_start_stop=[0, 1300], y_start_stop=[375, 650],
+                             xy_window=(64, 64), xy_overlap=(0.6, 0.6), window_list=None)
+wndws_v2 = slide_window(image, x_start_stop=[0, 1280], y_start_stop=[450, 650],
+                             xy_window=(120, 120), xy_overlap=(0.6, 0.6),window_list=None)
+
+The window could be found in the image below:
+
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/slide_window.png?raw=true)
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to try to minimize false positives and reliably detect cars?
 
