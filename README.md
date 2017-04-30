@@ -74,9 +74,8 @@ The window could be found in the image below:
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to try to minimize false positives and reliably detect cars?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result. After the reviewers feedback I implemented a sliding window search to counter the false detected areas and rescaled them by 64 *64 and added them to the non vehicle data. This improved the prediction and is called hard negative minning.
 
-![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/test_flow_on_images_new.png?raw=true)
 ---
 
 ### Video Implementation
