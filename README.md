@@ -91,7 +91,15 @@ https://youtu.be/-tH9PyQYvJ0
 
 To be more robust for videos I've added some techniques to detect vehicles in subsequent frames. A heatmap in the functions (get_hot_windows and detect_vehicles respectively) is added to show the location of repeated vehicle detections. The previous results are stored in a custom class Memory, that stores values of the previous frame. This technique was used to reduce the number of false positives, to combine multiple overlapping boundig boxes I've used a function to combine all bounding boxes. the code can be found in the submitted notebook.
 
+This are some example images I added to the non-vehicle dataset:
+
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/Cropped_false1.JPG?raw=true)
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/Cropped_false10.JPG?raw=true)
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/Cropped_false17.JPG?raw=true)
+
 ### Here is an example of a original image frame, it's corresponding heatmap and the boxes drawed on the output image:
+
+Old Image:
 
 ![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/test_flow_on_images_new.png?raw=true)
 
