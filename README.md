@@ -99,7 +99,11 @@ This are some example images I added to the non-vehicle dataset:
 
 ### Here is an example of a original image frame, it's corresponding heatmap and the boxes drawed on the output image:
 
-Old Image:
+## Old Image of the heatmap with some noise:
+
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/test_flow_on_images_new.png?raw=true)
+
+## New Image of the heatmap without the previous noise: 
 
 ![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/test_flow_on_images_new.png?raw=true)
 
