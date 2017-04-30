@@ -83,16 +83,18 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 
-Here's a link to my output video result on youtube: 
+Here's a link to my adjusted output video result on youtube: 
 
-https://youtu.be/nscgG2403FA
+https://youtu.be/-tH9PyQYvJ0
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-To be more robust for videos I've added some techniques to detect vehicles in subsequent frames. A heatmap in the functions get_hot_windows and detect_vehicles respectively) is added to show the location of repeated vehicle detections. The previous results are stored in a custom class Memory, that stores values of the previous frame. This technique was used to reduce the number of false positives, to combine multiple overlapping boundig boxes I've used a function to combine all bounding boxes. the code can be found in the submitted notebook.
+To be more robust for videos I've added some techniques to detect vehicles in subsequent frames. A heatmap in the functions (get_hot_windows and detect_vehicles respectively) is added to show the location of repeated vehicle detections. The previous results are stored in a custom class Memory, that stores values of the previous frame. This technique was used to reduce the number of false positives, to combine multiple overlapping boundig boxes I've used a function to combine all bounding boxes. the code can be found in the submitted notebook.
 
-### Here are six frames and their corresponding heatmaps:
+### Here is an example of a original image frame, it's corresponding heatmap and the boxes drawed on the output image:
+
+![alt tag](https://github.com/Martijnde/SDC-Project5-CarND-Vehicle-Detection/blob/master/test_flow_on_images_new.png?raw=true)
 
 ---
 
